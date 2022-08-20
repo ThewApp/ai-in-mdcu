@@ -1,0 +1,14 @@
+[build]
+  publish = "dist/"
+
+[dev]
+  autoLaunch = false
+
+[functions]
+  directory = "functions"
+  node_bundler = "esbuild"
+
+[[redirects]]
+  from = "/api/*"
+  to = "/.netlify/functions/:splat"
+  status = 200

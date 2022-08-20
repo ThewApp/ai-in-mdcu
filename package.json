@@ -1,5 +1,14 @@
 {
+  "scripts": {
+    "start": "netlify dev",
+    "deploy": "netlify deploy --prod"
+  },
+  "type": "module",
   "devDependencies": {
     "netlify-cli": "^11.3.0"
+  },
+  "dependencies": {
+    "discord-interactions": "^3.2.0",
+    "got": "^12.3.1"
   }
 }
