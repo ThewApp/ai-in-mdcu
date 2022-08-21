@@ -37,7 +37,7 @@ function handle_message(event, body) {
                 type: 2,
                 label: "Verify with Docchula",
                 style: 5,
-                url: `https://accounts.google.com/o/oauth2/v2/auth?client_id=${GOOGLE_CLIENT_ID}&redirect_uri=https://${event.headers.host}/api/verify&response_type=code&scope=openid%20email&state=${body.member.user.id}&hd=docchula.com`,
+                url: `https://accounts.google.com/o/oauth2/v2/auth?client_id=${GOOGLE_CLIENT_ID}&redirect_uri=https://${event.headers.host}/api/verify-google&response_type=code&scope=openid%20email&state=${body.member.user.id}&hd=docchula.com`,
               },
             ],
           },

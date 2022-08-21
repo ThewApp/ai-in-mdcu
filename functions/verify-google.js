@@ -20,7 +20,7 @@ export const handler = async (event, _context) => {
       code: code,
       client_id: GOOGLE_CLIENT_ID,
       client_secret: GOOGLE_CLIENT_SECRET,
-      redirect_uri: `https://${event.headers.host}/api/verify`,
+      redirect_uri: `https://${event.headers.host}/api/verify-google`,
       grant_type: "authorization_code",
     },
     responseType: "json",
@@ -30,7 +30,7 @@ export const handler = async (event, _context) => {
   if (!googleResponse.ok) {
     return {
       statusCode: googleResponse.statusCode,
-      body: "Error verification with Google (oauth)",
+      body: "Error verification with Google",
     };
   }
 
@@ -42,7 +42,7 @@ export const handler = async (event, _context) => {
     `https://discord.com/api/v10/guilds/${DISCORD_GUILD_ID}/members/${state}/roles/${DISCORD_ROLE_ID_MDCU}`,
     {
       headers: {
-        "X-Audit-Log-Reason": `Verified ${jwtPayload["email"]}`,
+        "X-Audit-Log-Reason": `Verified Google ${jwtPayload["email"]}`,
         Authorization: `Bot ${DISCORD_BOT_TOKEN}`,
       },
       throwHttpErrors: false,
@@ -52,12 +52,12 @@ export const handler = async (event, _context) => {
   if (!discordResponse.ok) {
     return {
       statusCode: discordResponse.statusCode,
-      body: discordResponse.body,
+      body: "Error discord api",
     };
   }
 
   return {
     statusCode: 200,
-    body: "Successfully verified with Docchula",
+    body: "Successfully verified with Docchula!\nThis window can be closed.",
   };
 };

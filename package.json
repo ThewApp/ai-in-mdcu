@@ -1,6 +1,7 @@
 {
   "scripts": {
     "start": "netlify dev",
+    "preview": "netlify deploy",
     "deploy": "netlify deploy --prod"
   },
   "type": "module",
