@@ -1,3 +1,4 @@
+export const DISCORD_APPLICATION_ID = process.env.DISCORD_APPLICATION_ID;
 export const DISCORD_PUBLIC_KEY = process.env.DISCORD_PUBLIC_KEY;
 export const DISCORD_GUILD_ID = process.env.DISCORD_GUILD_ID;
 export const DISCORD_CHANNEL_ID_VERIFY = process.env.DISCORD_CHANNEL_ID_VERIFY;
