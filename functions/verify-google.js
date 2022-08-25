@@ -125,7 +125,14 @@ async function handle_start(event, userId, interactionToken) {
 
 export const handler = async (event, _context) => {
   const code = event.queryStringParameters.code;
+  const error = event.queryStringParameters.error;
   const state = event.queryStringParameters.state;
+  if (error && state) {
+    return {
+      statusCode: 400,
+      body: `Authorization error: ${error}`,
+    };
+  }
   if (code && state) {
     return handle_callback(event, code, state);
   }
